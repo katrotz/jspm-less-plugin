@@ -21,6 +21,8 @@ ES6:
 
     import "path/to/style.less!"
 
-##TODO
+## Options
+The plugin can be customized under `lessOptions` property of JSPM config:
 
-- support for `@import`
+#### append 
+*(boolean)* Defines how to handle the imported less file. If true, will append the loaded style to documents head, otherwise will return the content of the style to be used in the javascript context.
