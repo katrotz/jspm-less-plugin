@@ -49,7 +49,7 @@ if (typeof window !== 'undefined') {
     // don't reload styles loaded in the head
     for (var i = 0; i < styleIds.length; i++) {
       if (load.address == styleIds[i]) {
-        // "Less" probable to hit this spot as JSPM will not fetch same source from remote twice
+        // "Less" probable to hit this spot as SystemJS will not fetch same source from remote twice
         return '';
       }
     }
@@ -57,7 +57,7 @@ if (typeof window !== 'undefined') {
   };
 
   exports.translate = function(load) {
-    // Read JSPM configurations of the plugin
+    // Read SystemJS configurations of the plugin
     var lessOptions = this.lessOptions || {};
 
     var appendStyles = lessOptions.append;
@@ -92,8 +92,10 @@ else {
   
   exports.bundle = function(loads, opts) {
     var loader = this;
-    if (loader.buildCSS === false)
+    if (loader.buildCSS === false) {
       return '';
+    }
+
     return loader.import('./less-builder', { name: module.id }).then(function(builder) {
       return builder.call(loader, loads, opts);
     });
