@@ -41,5 +41,4 @@ module.exports = function bundle(loads, opts) {
 			resolve([stubDefines, cssInject, '("' + escape(cssOutput) + '");'].join('\n'))
 		});
 	});
-
-}
+};
