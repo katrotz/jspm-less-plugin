@@ -1,7 +1,6 @@
-var less = require('less.js');
 
 if (typeof window !== 'undefined') {
-
+  var less = require('npm:less/lib/less-browser/index')(window, window.less || {});
   var head = document.getElementsByTagName('head')[0];
 
   // get all injected style tags in the page
