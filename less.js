@@ -82,8 +82,7 @@ if (typeof window !== 'undefined') {
       return 'def' + 'ine(function() {\nreturn ' + JSON.stringify(load.source) + ';\n});';
     }
   };
-}
-else {
+} else {
   // setting format = 'defined' means we're managing our own output
   exports.translate = function(load) {
     load.metadata.format = 'defined';
